@@ -92,6 +92,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun reloadListView() {
+        // Realmデータベースから、「データを取得して新しい日時順に並べた結果」を取得
+        val taskRealmQuery =
+            mRealm.where(Task::class.java)
+
+                .findAll().sort("date", Sort.DESCENDING)
+
+        // 上記の結果を、TaskListとしてセットする
+        mTaskAdapter.taskList = mRealm.copyFromRealm(taskRealmQuery)
+
+        // TaskのListView用のアダプタに渡す
+        listView1.adapter = mTaskAdapter
+
+        // 表示を更新するために、アダプターにデータが変更されたことを知らせる
+        mTaskAdapter.notifyDataSetChanged()
+
         button1.setOnClickListener {
             var search = search.text.toString()
 
@@ -124,7 +139,7 @@ class MainActivity : AppCompatActivity() {
                 listView1.adapter = mTaskAdapter
 
                 // 表示を更新するために、アダプターにデータが変更されたことを知らせる
-                mTaskAdapter.notifyDataSetChanged()
+                        mTaskAdapter.notifyDataSetChanged()
             }
         }
     }

@@ -10,38 +10,40 @@
 
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:orientation="vertical" >
+        android:paddingRight="16dp">
 
         <EditText
             android:id="@+id/search"
-            android:layout_width="270dp"
-            android:layout_height="69dp"
-             />
+            android:layout_width="306dp"
+            android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/button1"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="検索" />
 
         <ListView
             android:id="@+id/listView1"
-            android:layout_width="350dp"
-            android:layout_height="200dp" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
-        android:src="@drawable/plus"
         android:orientation="vertical"
-        app:backgroundTint="@color/colorPrimary"/>
-
-    </LinearLayout>
+        android:src="@drawable/plus"
+        app:backgroundTint="@color/colorPrimary"
+        app:layout_anchor="@+id/linearLayout"
+        app:layout_anchorGravity="end|top" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
