@@ -19,12 +19,12 @@
 
         <EditText
             android:id="@+id/search"
-            android:layout_width="306dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/button1"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:text="検索" />
 
